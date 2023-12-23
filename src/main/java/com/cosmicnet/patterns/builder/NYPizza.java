@@ -39,7 +39,7 @@ public class NYPizza extends Pizza {
     }
 
     public static void main(String[] args) {
-        Pizza nyPizza = new NYPizza.Builder().addToppings(Topping.ONION).addToppings(Topping.SAUSAGE).setSize(Size.LARGE).build();
+        Pizza nyPizza = new NYPizza.Builder().addToppings(Topping.SAUSAGE).addToppings(Topping.ONION).setSize(Size.MEDIUM).build();
         System.out.println("nyPizza : "+nyPizza);
     }
 
