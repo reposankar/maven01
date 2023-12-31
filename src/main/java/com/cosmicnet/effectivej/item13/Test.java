@@ -4,8 +4,8 @@ public class Test {
 	public static void main(String[] args) {
 
 		
-		HashTable ht = new HashTable();
-		ht.put(1, "A");
+		HashTableGen<Integer, String> ht = new HashTableGen<>();
+		ht.put(Integer.valueOf(1), "A");
 		ht.put(2, "B");
 		ht.put(3, "C");
 		ht.put(4, "D");
@@ -24,8 +24,7 @@ public class Test {
 		System.out.println(ht.get(Integer.valueOf(10)));
 		System.out.println(ht.get(4));
 		System.out.println(ht.get(14));
-		
-		
+		System.out.println(ht);
 		
 	}
 
