@@ -2,23 +2,40 @@ package com.cosmicnet.effectivej.item13;
 
 import java.util.Objects;
 
+/**
+ * 
+ * @author Sankar M
+ *
+ * @param <K> Key
+ * @param <V> Value
+ * Description: This class is a HashTable implementation using "generics" of Key and Value
+ * 				with "cloneable" functionality.  Implemented deep cloning using recursive 
+ * 				method for its Linked List Entry object of each bucket.
+ */
 public class HashTableGen<K, V> implements Cloneable {
 	
 	private final int DEFAULT_BUCKETS_SIZE = 6;
 	private int size = 0;
 	private Entry[] buckets =  new Entry[DEFAULT_BUCKETS_SIZE] ;
 	
-	private static class Entry<KS, VS> {
+	/*
+	 * Linked List object's class.  This is a static class to hold 
+	 * Entry object containing Key, value and next to point
+	 * to the next Entry object in the liked list chain.
+	 */	private static class Entry<KS, VS> {
 		final KS key;
 		VS value;
 		Entry<KS, VS> next;
 		
+		//Linked List link object constructor.
 		Entry(KS key, VS value, Entry<KS, VS> next) {
 			this.key = key;
 			this.value = value;
 			this.next = next;
 		}
 		
+		
+		//Linked like link object Entry's deep cloning method using recursion. 
 		Entry<KS, VS> deepCopy() {
 			//return new Entry(key, value, next == null ? null : next.deepCopy());
 			Entry<KS, VS> result = new Entry<>(key, value, next);
@@ -44,6 +61,8 @@ public class HashTableGen<K, V> implements Cloneable {
 		}
 	}
 	
+	
+	//method to include data into HashTable
 	public void put(final K key, V value) {
 		Objects.requireNonNull(key);
 		int hash = Math.floorMod(key.hashCode(), buckets.length);
@@ -63,6 +82,7 @@ public class HashTableGen<K, V> implements Cloneable {
 			addEntryToBucket(entry.next, key, value);
 	}
 	
+	//method to get value for a given key value of a HashTable instance.
 	public V get(K key) {
 		Objects.requireNonNull(key);
 		int hash = Math.floorMod(key.hashCode(), buckets.length);
@@ -77,6 +97,8 @@ public class HashTableGen<K, V> implements Cloneable {
 			result = getFromList(entry.next, key);
 		return result;
 	}
+	
+	//Typical toString implementation
 	@Override 
 	public String toString() {
 		StringBuilder result = new StringBuilder("[ ");
