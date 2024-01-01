@@ -1,6 +1,7 @@
 package com.cosmicnet.effectivej.item14;
 
 import java.util.Objects;
+import java.util.Comparator;
 
 /**
  * 
@@ -58,8 +59,11 @@ public class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
 		return result;
 	}
 
-	//@Override
+	
+	//compare using Comparator interface static method comparingInt & thenComparingInt methods.
+	@Override
 	public int compareTo(PhoneNumber ph) {
+		/*
 		int result = Integer.compare(areaCode, ph.areaCode);
 		if(result == 0) {
 			result = Integer.compare(prefix, ph.prefix);
@@ -67,10 +71,13 @@ public class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
 				result = Integer.compare(prefix, ph.prefix);
 			}
 		}
+		*/
+		int result = Comparator
+						.comparingInt((PhoneNumber x)-> x.areaCode)
+						.thenComparingInt((PhoneNumber x)-> x.prefix)
+						.thenComparingInt((PhoneNumber x)-> x.lineNumber)
+						.compare(this, ph);
 		return result;
 	}
-
-
-	
 	
 }
