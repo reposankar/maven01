@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  */
 
-public class PhoneNumber implements Cloneable {
+public class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
 	private int areaCode;
 	private int prefix;
 	private int lineNumber;
@@ -57,6 +57,20 @@ public class PhoneNumber implements Cloneable {
 		}
 		return result;
 	}
+
+	//@Override
+	public int compareTo(PhoneNumber ph) {
+		int result = Integer.compare(areaCode, ph.areaCode);
+		if(result == 0) {
+			result = Integer.compare(prefix, ph.prefix);
+			if(result == 0) {
+				result = Integer.compare(prefix, ph.prefix);
+			}
+		}
+		return result;
+	}
+
+
 	
 	
 }

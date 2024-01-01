@@ -2,6 +2,10 @@ package com.cosmicnet.effectivej.item14;
 
 import java.util.Arrays;
 import java.util.List;
+//import java.util.Collections;
+import java.util.Set;
+import java.util.TreeSet;
+
 
 public class Main {
 	public static void main(String[] args) {
@@ -16,6 +20,10 @@ public class Main {
 		System.out.println(ph1);
 		PhoneNumber ph2 = p1.clone();
 		System.out.println(ph2);
+		Set<PhoneNumber> ps = new TreeSet<>();
+		ps.addAll(pl);
+		System.out.println(ps);
+		
 		
 	}
 
