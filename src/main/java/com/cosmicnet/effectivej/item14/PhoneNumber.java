@@ -7,7 +7,7 @@ import java.util.Objects;
  * @author Sankar M
  * @version 1.0
  * Description:
- * 	This class is to demonstrate copy and comparable functionality.
+ * 	This class is to demonstrate clone and comparable functionality.
  *
  */
 
