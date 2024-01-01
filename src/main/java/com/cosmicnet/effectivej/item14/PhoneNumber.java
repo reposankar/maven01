@@ -72,12 +72,11 @@ public class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
 			}
 		}
 		*/
-		int result = Comparator
+		return Comparator
 						.comparingInt((PhoneNumber x)-> x.areaCode)
 						.thenComparingInt((PhoneNumber x)-> x.prefix)
 						.thenComparingInt((PhoneNumber x)-> x.lineNumber)
 						.compare(this, ph);
-		return result;
 	}
 	
 }
