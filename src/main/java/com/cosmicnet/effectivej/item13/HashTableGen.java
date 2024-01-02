@@ -86,7 +86,7 @@ public class HashTableGen<K, V> implements Cloneable {
 	public V get(K key) {
 		Objects.requireNonNull(key);
 		int hash = Math.floorMod(key.hashCode(), buckets.length);
-		return getFromList(buckets[hash], key);
+		return (V) getFromList(buckets[hash], key);
 	}
 	
 	private V getFromList(Entry<K, V> entry, K key) {
