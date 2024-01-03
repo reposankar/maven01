@@ -86,10 +86,7 @@ public class HashTableGen<K, V> implements Cloneable {
 	public V get(K key) {
 		Objects.requireNonNull(key);
 		int hash = Math.floorMod(key.hashCode(), buckets.length);
-<<<<<<< HEAD
 		//Below generic type conversion required at line 74 after upgrade to jdk 11
-=======
->>>>>>> f49b3927eaf417cd005046fd03b92ef6f312dc45
 		return (V) getFromList(buckets[hash], key);
 	}
 	
