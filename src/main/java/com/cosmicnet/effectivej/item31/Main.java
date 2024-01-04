@@ -40,6 +40,8 @@ public class Main {
 		list.set(j, list.set(i, list.get(j)));
 	}
 	*/
+	
+	//include simple wildcard generic for API release
 	public static  void swap(List<?> list, int i, int j) {
 		//list.set(j, list.set(i, list.get(j)));
 		swapHelper(list, i, j);
