@@ -5,7 +5,9 @@ package com.cosmicnet.effectivej.item34;
  * @apiNote Enum strategy pattern to limit the code repetition.
  *
  */
-public enum PayrollDay {
+
+
+public enum PayrollDay implements Payroll{
 	
 	MONDAY,
 	TUESDAY,
@@ -56,6 +58,11 @@ public enum PayrollDay {
 			return (hoursWorked * payRate) + overtimePay(hoursWorked, payRate);
 		}
 		
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString().toLowerCase().replaceFirst("[a-z]", String.valueOf(super.toString().charAt(0))) +" --> ";
 	}
 	
 
