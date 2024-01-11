@@ -14,7 +14,7 @@ import java.util.Set;
 
 
 public class AnagramStream {
-	
+	//----------------------------------------------------------------------------
 	public static void main(String[] args) {
 		Path path = Paths.get(Objects.requireNonNull(args[0]));
 		final int minGroupSize = Integer.parseInt(Objects.requireNonNull(args[1]));
@@ -34,7 +34,7 @@ public class AnagramStream {
 			System.out.println("Error : IO - "+fex);
 		}
 	}
-	
+	//-------------------------------------------------------------------------------
 	public static String aplhabetise(String s) {
 		char[] ca = s.toLowerCase().toCharArray();
 		Arrays.sort(ca);
