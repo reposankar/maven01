@@ -1,5 +1,7 @@
 package com.cosmicnet.effectivej.item45;
 
+import java.util.EnumMap;
+
 public class MyString implements Comparable<MyString> {
 	private String s;
 	MyString(String s) {
