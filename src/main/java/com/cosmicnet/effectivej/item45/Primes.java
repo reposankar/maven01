@@ -9,7 +9,7 @@ public class Primes {
 	}
 	
 	public static void main(String[] args) {
-		primes().map(p->BigInteger.TWO.pow(p.intValueExact()).subtract(BigInteger.ONE))
+		primes().parallel().map(p->BigInteger.TWO.pow(p.intValueExact()).subtract(BigInteger.ONE))
 				.filter(m->m.isProbablePrime(50))
 				.limit(10)
 				.forEach(System.out::println);

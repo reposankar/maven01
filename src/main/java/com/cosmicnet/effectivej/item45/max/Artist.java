@@ -5,6 +5,11 @@ public class Artist implements Comparable<Artist>{
 	Artist(String name) {
 		this.name = name;
 	}
+	
+	public void setArtist(String name) {
+		this.name = name;
+	}
+	
 	@Override
 	public String toString() {
 		return name;
@@ -31,7 +36,7 @@ public class Artist implements Comparable<Artist>{
 	public int compareTo(Artist o) {
 		if(!(o instanceof Artist))
 			throw new IllegalArgumentException("invalid argument passed to Album compareTo");
-		return name.compareTo(o.name);
+		return name.compareTo(o.name); 
 	}
 
 }

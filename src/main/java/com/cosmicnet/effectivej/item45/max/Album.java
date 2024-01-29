@@ -14,12 +14,24 @@ public class Album implements Comparable<Album>{
 	public int getSales() {
 		return sales;
 	}
+	public String getName() {
+		return name;
+	}
+	public String getShortName() {
+		return getName().substring(0, (getName().indexOf("-")<=-1)?getName().length():getName().indexOf("-")-1);
+	}
 	public Artist getArtist() {
 		return artist;
 	}
+	
+	public void setName(String name) {
+		this.name = name+this.name;
+	}
+	
+	
 	@Override
 	public String toString() {
-		return name;
+		return "\n"+getShortName();
 	}
 	
 	@Override
@@ -36,7 +48,7 @@ public class Album implements Comparable<Album>{
 	public int hashCode() {
 		int result = 1;
 		result = result * 31 + artist.hashCode();
-		result = result * 31 + name.hashCode();
+		result = result * 31 + name.replace("x", "").hashCode();
 		result = result * 31 + sales;
 		return result;
 	}

@@ -4,15 +4,15 @@ import java.io.*;
 
 /**
  * This is a singleton class.
- * @author RepoSankar
+ * @author Sankar M
  *
  */
 
-public class AppConfig implements Serializable, Cloneable {
+public final class AppConfig implements Serializable, Cloneable {
 
 	/**
 	 * Singleton class to get an application configuration object.
-	 * Author : RepoSankar
+	 * Author : Sankar M
 	 */
 	
 	public enum AppRAMType {INTEL, AMD, VEDANTA}
@@ -43,6 +43,7 @@ public class AppConfig implements Serializable, Cloneable {
 			
 	}
 	
+	/*
 	public static AppConfig getInstance() {
 		if(self == null) {
 			synchronized(AppConfig.class) {
@@ -52,6 +53,17 @@ public class AppConfig implements Serializable, Cloneable {
 			}
 		}
 		return self;
+	}
+	*/
+	public static AppConfig getInstance() {
+		AppConfig result = self;
+		if (result == null) {
+			synchronized(AppConfig.class) {
+				if (self == null)
+					self = result = new AppConfig();
+			}
+		}
+		return result;
 	}
 	
 	Object readResolve() {
